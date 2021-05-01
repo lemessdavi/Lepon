@@ -1,0 +1,92 @@
+package cadastro.lepon.front;
+import javax.swing.JLabel;
+import java.awt.FlowLayout;
+import javax.swing.ImageIcon;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Home extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JButton btnNewButton_2;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Home frame = new Home();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Home() {
+		
+		//titulo da barra de cima
+		super("lepon");
+		
+		//nao sei copiei do tutorial
+		getContentPane().setLayout(new FlowLayout());
+		
+		
+		// faz a janela
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		
+		//botao de novo cliente, vai para tela novo cliente
+		JButton btnNewButton = new JButton("Cliente Novo");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(274, 50, 117, 29);
+		contentPane.add(btnNewButton);
+		
+		
+		// botao de cliente que ja eh cadastrado, vai para a tela de selecionar qual eh o cliente ja cadastrado
+		JButton btnNewButton_1 = new JButton("Cliente Login");
+		btnNewButton_1.setBounds(274, 114, 117, 29);
+		contentPane.add(btnNewButton_1);
+		
+		
+		// botao de pesquisa de cliente, mostra os dados se o cliente ja estiver cadastrado, se nao fala que n ta cadastrado
+		textField = new JTextField("Pesquisar Clientes");
+		textField.setBounds(274, 178, 137, 26);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		
+		// botao para aparecer todos os cadastros, vai ser a logo lepon
+		btnNewButton_2 = new JButton("Cadastros");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_2.setBounds(40, 94, 110, 68);
+		contentPane.add(btnNewButton_2);
+	}
+}

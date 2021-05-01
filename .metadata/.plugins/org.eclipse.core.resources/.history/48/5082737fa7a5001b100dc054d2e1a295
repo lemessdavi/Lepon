@@ -1,0 +1,12 @@
+import java.sql.*;
+
+public class TestaConexao {
+	public static void main(String[] args) throws SQLException {
+		
+		//String connectionUrl = "jdbc:mysql://localhost:3306/sonoo\",\"root\",\"root\"";
+		Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/lepon","root","Slytherin8");
+		
+		connection.close();
+	}
+}
+root@127.0.0.1:3306

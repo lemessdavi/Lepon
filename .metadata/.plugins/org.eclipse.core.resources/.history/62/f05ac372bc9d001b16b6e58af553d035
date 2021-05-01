@@ -1,0 +1,19 @@
+package cadastro.lepon;
+
+public class Prontuario {
+	private RespostasQuestionario AfinadorSangue;
+	private RespostasQuestionario ProcedimentoAInformar; 
+	private String ProcedimentoAInformarComplemento; 
+	
+	public Prontuario() {
+		
+	}
+	
+	public void setAfinadorSangue(RespostasQuestionario afinadorSangue) {
+		AfinadorSangue = afinadorSangue;
+	}
+	
+	public void setProcedimentoAInformar(RespostasQuestionario procedimentoAInformar) {
+		ProcedimentoAInformar = procedimentoAInformar;
+	}
+}

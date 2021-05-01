@@ -1,0 +1,11 @@
+import java.sql.*;
+
+public class ConnectionFactory {
+	public static void main(String[] args) throws SQLException {
+		
+		Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/lepon","root","Slytherin8");
+		
+		System.out.println("Fechando Conexao");
+		connection.close();
+	}
+}

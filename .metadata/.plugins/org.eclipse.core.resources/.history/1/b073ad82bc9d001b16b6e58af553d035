@@ -1,0 +1,22 @@
+package cadastro.lepon;
+
+public enum RespostaComComplemento {
+	SIM("Sim", "Testes"), NAO("Não", "Testes"), OUTRO("Outro", "Testes");
+	
+	private String descricao;
+	private String complemento;
+	
+	RespostaComComplemento(String descricao, String complemento ){
+		this.descricao = descricao;
+		this.complemento = complemento;
+	}
+	
+
+	public String getDescricao() {
+		return descricao;
+	}
+	
+	public String getComplemento() {
+		return complemento;
+	}
+}
