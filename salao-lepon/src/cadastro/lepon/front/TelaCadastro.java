@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import cadastro.lepon.Cliente;
+import lepon.repository.AdicionaClientes;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -127,12 +128,14 @@ public class TelaCadastro extends JFrame {
 				// variavel que armazena os inteiros recebidos de dia mes e ano e cria um localdate
 				LocalDate nascimento = LocalDate.of(anoNascimento, mesNascimento, diaNascimento);
 				
+				//cria o cliente e salva no  bd
 				Cliente cliente = new Cliente(nomeTextField.getText(),
 						cpfTextField.getText(),
 						enderecoTextField.getText(),
 						telefoneTextField.getText(),
 						emailTextFiled.getText(),
 						nascimento);
+				
 				
 				
 				} catch (NumberFormatException ex) {
