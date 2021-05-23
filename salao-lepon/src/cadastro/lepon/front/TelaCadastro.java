@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import cadastro.lepon.Cliente;
-import lepon.repository.AdicionaClientes;
+import lepon.repository.ManipulaClientes;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -17,6 +17,7 @@ import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 import javax.swing.Action;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class TelaCadastro extends JFrame {
@@ -128,7 +129,7 @@ public class TelaCadastro extends JFrame {
 				// variavel que armazena os inteiros recebidos de dia mes e ano e cria um localdate
 				LocalDate nascimento = LocalDate.of(anoNascimento, mesNascimento, diaNascimento);
 				
-				//cria o cliente e salva no  bd
+				//cria o cliente 
 				Cliente cliente = new Cliente(nomeTextField.getText(),
 						cpfTextField.getText(),
 						enderecoTextField.getText(),
@@ -136,7 +137,16 @@ public class TelaCadastro extends JFrame {
 						emailTextFiled.getText(),
 						nascimento);
 				
-				
+				// adiciona o cliente no BD
+				try {
+					ManipulaClientes manipulaCliente = new ManipulaClientes();
+					manipulaCliente.addCliente(cliente.getNome(), cliente.getCpf(), cliente.getEndereco(), cliente.getTelefone(), cliente.getEmail(), cliente.getNascimento());
+					manipulaCliente.exibeClientes();
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					System.out.println("SQL EXCPECTION");
+				}
 				
 				} catch (NumberFormatException ex) {
 					System.out.println("O valor inserido eh invalido");
